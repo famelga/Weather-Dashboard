@@ -57,16 +57,16 @@ function currentWeatherData(data) {
 
 function forecastData(data) {
     
-    // date data.list[i].dt
     var dateEl = document.createElement("h3");
-    // icon data.list[i].weather[0].icon
+    dateEl.textContent = data.list[i].dt;
     var iconEl = document.createElement("img");
-    // temp data.list[i].temp
+    iconEl.textContent = data.list[i].weather[0].icon;
     var tempEl = document.createElement("h5");
-    // wind data.list[i].wind.speed
+    tempEl.textContent = data.list[i].temp;
     var windEl = document.createElement("h5");
-    // humidity data.list[i].humidity
+    windEl.textContent = data.list[i].wind.speed;
     var humidityEl = document.createElement("h5");
+    humidityEl.textContent = data.list[i].humidity;
 } 
 
 btnEl.addEventListener("click", search);
