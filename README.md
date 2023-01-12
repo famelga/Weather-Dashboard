@@ -15,24 +15,28 @@
 
 [Visit the Deployed Site](https://famelga.github.io/Weather-Dashboard/)
 
+I have used a third-party API to retrieve data from openweathermap.org to create a weather dashboard.
+
+Before using the API, I needed to set up my html framework. I created a header and search tools on the body. I included the search text box and button, along with their subheading in a div tag. This div tag allowed for all of the children to be formatted together at the upper-left hand corner for the main body. These were styled directly in the html using Bootstrap, rather than in the style.css document. I also included div tags as placeholders for where the returned responses from the API would be displayed on the html.
+
+In JavaScript, I created an eventlistener for the search button. This eventlistener triggers a series of functions that work to retrieve the necessary data from the API. I console.logged the returned data, then traversed the console to call on the data that was retrieved from the API. I attempted to include this data on by html by using textContent and appendChild. However, I received an error message stating that the data was not recognized. 
 
 ![Dashboard Page](./assests/images/Dashboard.gif)
 
 ## Portfolio Example
 
-Below, my setinterval function was not displaying the timer since the "i" in interval was not capitalized. JavaScript was unable to recognize it with a lowercase letter, thus my code was not communicating with each other.
-
-
-```function gatherCrit() {
-timerId = setinterval(countDown, 1000);
-```
-
-Here, the function is formatted correctly with a capitalized "i"  in setInterval.
+Here is an example of the code I used to extract the data in the console that was received from the API.
 
 ```
-timerId = setInterval(countDown, 1000);
+    var todayEl = document.getElementById("today");
+    var nameEl = document.createElement("h2");
+    nameEl.textContent = data.name;
+    todayEl.appendChild(nameEl);
 ```
-
+This is where I wanted to place the data on the html.
+```
+<div id="today" class="current-date"></div>
+```
 
 ## Usage 
 
@@ -44,9 +48,7 @@ Visit website.
 ## Learning Points 
 
 
-By creating this application, I have learned the importance of pseudocoding. Although I experienced some struggles and did not complete the assignment, navigating the code that I completed was easier due to pseudocode. 
-
-I was also reminded of the importance of details and specificity. There were a couple of instances in which my code was not working when I would view the page in a browser. These ended up being sue to s missing character, capitalization, or wrong formatting. 
+While I struggled with displaying the response from the API, I learned the proper format to fetch an APi and its promise. I was also able to successfully use bootstrap to style my html without css.
 
 ## Author Info
 
@@ -64,13 +66,11 @@ I was also reminded of the importance of details and specificity. There were a c
 Fayven Amelga
 
 
-
-
 ## License
 
 MIT License
 
-Copyright (c) 2022 Fayven Amelga
+Copyright (c) 2023 Fayven Amelga
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -96,4 +96,4 @@ SOFTWARE.
 
 ---
 
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2023 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
