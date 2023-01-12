@@ -41,18 +41,18 @@ function getWeather(cityName) {
 
 // current weather data:
 function currentWeatherData(data) {
-    // name data.name
     var nameEl = document.createElement("h2");
-    // date data.dt
+    nameEl.textContent = data.name;
     var dateEl = document.createElement("h3");
-    // icon data.weather[0].icon
+    dateEl.textContent = data.dt;
     var iconEl = document.createElement("img");
-    // temp data.main.temp
+    iconEl.textContent = data.weather[0].icon;
     var tempEl = document.createElement("h5");
-    // wind data.wind.speed
+    tempEl.textContent = data.main.temp;
     var windEl = document.createElement("h5");
-    // humidity data.main.humidity
+    windEl.textContent = data.wind.speed;
     var humidityEl = document.createElement("h5");
+    humidityEl.textContent = data.main.humidity;
 } 
 
 function forecastData(data) {
