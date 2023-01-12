@@ -13,10 +13,10 @@
 
 ## Description 
 
-[Visit the Deployed Site](https://famelga.github.io/Code-Quiz/)
+[Visit the Deployed Site](https://famelga.github.io/Weather-Dashboard/)
 
 
-![Code Quiz Page](./assets/images/Code%20Quiz.gif)
+![Dashboard Page](./assests/images/Dashboard.gif)
 
 ## Portfolio Example
 
@@ -39,7 +39,7 @@ timerId = setInterval(countDown, 1000);
 Visit website.
 
 
-![Quiz Homepage](./assets/images/Website%20Homepage.png)
+![Dashboard Homepage](./assests/images/Dashboard.jpeg)
 
 ## Learning Points 
 
