@@ -16,11 +16,20 @@
         <h1 class="column p-2 text-white">Weather Dashboard</h1>
     </header>
 
-    <div class="container w-25 float-start">
-    <div>Search for a City</div>
-    <input type="text" id="search-input" class="form-control" placeholder="City Name"></input>
-    <button type="submit" value="submit" class="btn bg-info">Search</button>
+    <div class="top-0 start-0 w-25 p-2">
+    <h4 class="justify-content-center">Search for a City</h4>
+    <input type="text" id="search-input" class="form-control mt-3" placeholder="City Name"></input>
+    <button type="submit" value="submit" class="btn bg-info mt-3">Search</button>
     </div>
+
+    <div class="results">
+        <ul class="past-searches"></ul>
+    </div>
+
+    <div class="current-date"></div>
+
+    <div class="five-day"></div>
+
     <script src="./assests/js/style.js"></script>
 </body>
 
