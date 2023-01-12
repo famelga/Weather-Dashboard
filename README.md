@@ -19,7 +19,7 @@ I have used a third-party API to retrieve data from openweathermap.org to create
 
 Before using the API, I needed to set up my html framework. I created a header and search tools on the body. I included the search text box and button, along with their subheading in a div tag. This div tag allowed for all of the children to be formatted together at the upper-left hand corner for the main body. These were styled directly in the html using Bootstrap, rather than in the style.css document. I also included div tags as placeholders for where the returned responses from the API would be displayed on the html.
 
-In JavaScript, I created an eventlistener for the search button. This eventlistener triggers a series of functions that work to retrieve the necessary data from the API. I console.logged the returned data, then traversed the console to call on the data that was retrieved from the API. I attempted to include this data on by html by using textContent and appendChild. However, I received an error message stating that the data was not recognized. 
+In JavaScript, I created an eventlistener for the search button. This eventlistener triggers a series of functions that work to retrieve the necessary data from the API. I console.logged the returned data, then traversed the console to call on the data that was retrieved from the API. I attempted to include this data on by html by using textContent and appendChild. While some of the data displayed onto the website, I received an error message stating that the data was not recognized. 
 
 ![Dashboard Page](./assests/images/Dashboard.gif)
 

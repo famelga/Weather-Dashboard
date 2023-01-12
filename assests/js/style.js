@@ -21,8 +21,9 @@ function getForecast() {
     .then(function (data) {
         console.log("forecast");
       console.log(data);
+      getWeather(cityInput);
     });
-    getWeather();
+    
 
 }
 
@@ -36,9 +37,9 @@ function getWeather(cityName) {
     .then(function (data) {
         console.log("current");
       console.log(data);
-  
+      currentWeatherData(data);
+      forecastData(data, 0);
     });
-    currentWeatherData();
 }
 
 function currentWeatherData(data) {
@@ -61,11 +62,10 @@ function currentWeatherData(data) {
     var humidityEl = document.createElement("h5");
     humidityEl.textContent = data.main.humidity;
     todayEl.appendChild(humidityEl);
-    forecastData();
 
 } 
 
-function forecastData(data) {
+function forecastData(data, i) {
     var fiveEl = document.getElementById("five")
     var dateEl = document.createElement("h3");
     dateEl.textContent = data.list[i].dt;
