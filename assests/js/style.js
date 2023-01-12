@@ -4,8 +4,6 @@ var apiKey = "189579eeb4103c71fbfaccf9d7f42125";
 var cityInput = document.getElementById("search-input");
 var btnEl = document.querySelector(".btn");
 var currentdayEl = document.getElementsByClassName("current-date");
-// var todayEl = document.getElementById("today");
-var fiveEl = document.getElementById("five");
 
 function search(event) {
   event.preventDefault;
@@ -66,17 +64,22 @@ function currentWeatherData(data) {
 } 
 
 function forecastData(data) {
-    
+    var fiveEl = document.getElementById("five")
     var dateEl = document.createElement("h3");
     dateEl.textContent = data.list[i].dt;
+    fiveEl.appendChild(dateEl);
     var iconEl = document.createElement("img");
     iconEl.textContent = data.list[i].weather[0].icon;
+    fiveEl.appendChild(iconEl);
     var tempEl = document.createElement("h5");
     tempEl.textContent = data.list[i].temp;
+    fiveEl.appendChild(tempEl);
     var windEl = document.createElement("h5");
     windEl.textContent = data.list[i].wind.speed;
+    fiveEl.appendChild(windEl);
     var humidityEl = document.createElement("h5");
     humidityEl.textContent = data.list[i].humidity;
+    fiveEl.appendChild(humidityEl);
 } 
 
 btnEl.addEventListener("click", search);
