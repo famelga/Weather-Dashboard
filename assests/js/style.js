@@ -8,28 +8,34 @@
 // display 5 day
 // allow for searches
 
-var apiBase = "api.openweathermap.org/data/2.5/forecast?q="
-var apiKey = "&appid=189579eeb4103c71fbfaccf9d7f42125";
+var apiBase = "api.openweathermap.org/data/2.5/forecast?q=";
+var apiKey = "189579eeb4103c71fbfaccf9d7f42125";
 var cityInput = document.getElementById("search-input");
 var btnEl = document.querySelector(".btn");
+var currentdayEl = document.getElementsByClassName("current-date");
 
 function search(event) {
-  console.log(event);
-  console.log(cityInput.value);
-  console.log(typeof cityInput.value);
-  var api = apiBase + cityInput.value + apiKey;
-  console.log(api)
-// var api = apiBase+cityInput+apiKey;
-  fetch(api)
+  event.preventDefault;
+  getWeather();
+}
+//   console.log(event);
+//   console.log(cityInput.value);
+//   console.log(typeof cityInput.value);
+function getWeather() {
+  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + apiKey + "&units=imperial";
+  console.log(requestUrl);
+  // var api = apiBase+cityInput+apiKey;
+  fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+    //   currentdayEl.textContent = data;
     });
+
   // run a fetch with the cityInput.value
   // once fetch response is back call function to display the data
-  // fetch(apiBase + cityInput.value + "&appid=" + apiKey)
 }
 
 // function getWeather(cityName) {
