@@ -1,12 +1,3 @@
-// Click on search box
-// city name
-// submit
-// fetch Api
-// base url string and user string
-// Creates city name local storage
-// display current temp
-// display 5 day
-// allow for searches
 
 var apiBase = "api.openweathermap.org/data/2.5/forecast?q=";
 var apiKey = "189579eeb4103c71fbfaccf9d7f42125";
@@ -18,24 +9,20 @@ function search(event) {
   event.preventDefault;
   getForecast();
 }
-//   console.log(event);
-//   console.log(cityInput.value);
-//   console.log(typeof cityInput.value);
+
 function getForecast() {
   var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + apiKey + "&units=imperial";
   console.log(requestUrl);
-  // var api = apiBase+cityInput+apiKey;
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+        console.log("forecast");
       console.log(data);
-    //   currentdayEl.textContent = data;
     });
     getWeather();
-  // run a fetch with the cityInput.value
-  // once fetch response is back call function to display the data
+
 }
 
 function getWeather(cityName) {
@@ -46,19 +33,40 @@ function getWeather(cityName) {
       return response.json();
     })
     .then(function (data) {
+        console.log("current");
       console.log(data);
-    //   currentdayEl.textContent = data;
+  
     });
 }
 
-//     // do something with cityName
-//     var weatherData = fetch('getMyWeather');
-//     step2(weatherData, cityName);
-// }
+// current weather data:
+function currentWeatherData(data) {
+    // name data.name
+    var nameEl = document.createElement("h2");
+    // date data.dt
+    var dateEl = document.createElement("h3");
+    // icon data.weather[0].icon
+    var iconEl = document.createElement("img");
+    // temp data.main.temp
+    var tempEl = document.createElement("h5");
+    // wind data.wind.speed
+    var windEl = document.createElement("h5");
+    // humidity data.main.humidity
+    var humidityEl = document.createElement("h5");
+} 
 
-// function renderWeatherData(data) {
-//     console.log(data);
-//     console.log(data2);
-// }
+function forecastData(data) {
+    
+    // date data.list[i].dt
+    var dateEl = document.createElement("h3");
+    // icon data.list[i].weather[0].icon
+    var iconEl = document.createElement("img");
+    // temp data.list[i].temp
+    var tempEl = document.createElement("h5");
+    // wind data.list[i].wind.speed
+    var windEl = document.createElement("h5");
+    // humidity data.list[i].humidity
+    var humidityEl = document.createElement("h5");
+} 
 
 btnEl.addEventListener("click", search);
