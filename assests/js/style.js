@@ -5,6 +5,7 @@ var cityInput = document.getElementById("search-input");
 var btnEl = document.querySelector(".btn");
 var currentdayEl = document.getElementsByClassName("current-date");
 
+
 function search(event) {
   event.preventDefault;
   getForecast();
@@ -37,14 +38,13 @@ function getWeather(cityName) {
       console.log(data);
   
     });
+    currentWeatherData();
 }
 
-// current weather data:
 function currentWeatherData(data) {
     var todayEl = document.getElementById("today");
     var nameEl = document.createElement("h2");
     nameEl.textContent = data.name;
-    // todayEl.appendChild(nameEl);
     todayEl.appendChild(nameEl);
     var dateEl = document.createElement("h3");
     dateEl.textContent = data.dt;
@@ -61,6 +61,8 @@ function currentWeatherData(data) {
     var humidityEl = document.createElement("h5");
     humidityEl.textContent = data.main.humidity;
     todayEl.appendChild(humidityEl);
+    forecastData();
+
 } 
 
 function forecastData(data) {
