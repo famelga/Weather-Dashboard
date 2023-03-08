@@ -8,26 +8,8 @@ var currentdayEl = document.getElementsByClassName("current-date");
 
 function search(event) {
   event.preventDefault;
-  // getForecast();
   getWeather(cityInput.value);
 }
-
-// function getForecast() {
-//   var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + apiKey + "&units=imperial";
-//   console.log(requestUrl);
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then(function (data) {
-//         console.log("forecast");
-//       console.log(data);
-//       forecastData(data, 0);
-//     });
-    
-
-// }
 
 function getWeather(cityName) {
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" +cityName + "&appid=" + apiKey + "&units=imperial";
@@ -48,6 +30,7 @@ function getWeather(cityName) {
       })
       .then(function(data){
         console.log(data)
+        forecastData(data)
       })
     });
 }
@@ -75,23 +58,41 @@ function currentWeatherData(data) {
 
 } 
 
-function forecastData(data, i) {
-    var fiveEl = document.getElementById("five")
-    var dateEl = document.createElement("h3");
-    dateEl.textContent = data.list[i].dt;
-    fiveEl.appendChild(dateEl);
-    var iconEl = document.createElement("img");
-    iconEl.textContent = data.list[i].weather[0].icon;
-    fiveEl.appendChild(iconEl);
-    var tempEl = document.createElement("h5");
-    tempEl.textContent = data.list[i].temp;
-    fiveEl.appendChild(tempEl);
-    var windEl = document.createElement("h5");
-    windEl.textContent = data.list[i].wind.speed;
-    fiveEl.appendChild(windEl);
-    var humidityEl = document.createElement("h5");
-    humidityEl.textContent = data.list[i].humidity;
-    fiveEl.appendChild(humidityEl);
+function forecastData(data) {
+var dayOneEl = document.querySelector(".day-one");
+var dayTwoEl = document.querySelector(".day-two");
+var dayThreeEl = document.querySelector(".day-three");
+var dayFourEl = document.querySelector(".day-four");
+var dayFiveEl = document.querySelector(".day-five");
+
+var dateOne = moment().add(1, "day").format("MM/DD/YYYY");
+var dateTwo = moment().add(2, "day").format("MM/DD/YYYY");
+var dateThree = moment().add(3, "day").format("MM/DD/YYYY");
+var dateFour = moment().add(4, "day").format("MM/DD/YYYY");
+var dateFive = moment().add(5, "day").format("MM/DD/YYYY");
+
+var iconUrlOne = `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`;
+var iconUrlTwo = `https://openweathermap.org/img/w/${data.list[11].weather[0].icon}.png`;
+var iconUrlThree = `https://openweathermap.org/img/w/${data.list[19].weather[0].icon}.png`;
+var iconUrlFour = `https://openweathermap.org/img/w/${data.list[27].weather[0].icon}.png`;
+var iconUrlFive = `https://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png`;
+
+    // var fiveEl = document.getElementById("five")
+    // var dateEl = document.createElement("h3");
+    // dateEl.textContent = data.list[i].dt;
+    // fiveEl.appendChild(dateEl);
+    // var iconEl = document.createElement("img");
+    // iconEl.textContent = data.list[i].weather[0].icon;
+    // fiveEl.appendChild(iconEl);
+    // var tempEl = document.createElement("h5");
+    // tempEl.textContent = data.list[i].temp;
+    // fiveEl.appendChild(tempEl);
+    // var windEl = document.createElement("h5");
+    // windEl.textContent = data.list[i].wind.speed;
+    // fiveEl.appendChild(windEl);
+    // var humidityEl = document.createElement("h5");
+    // humidityEl.textContent = data.list[i].humidity;
+    // fiveEl.appendChild(humidityEl);
 } 
 
 btnEl.addEventListener("click", search);
