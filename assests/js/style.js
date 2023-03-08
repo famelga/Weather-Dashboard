@@ -81,11 +81,21 @@ var dateFive = document.createElement("h3");
 dateFive.textContent= moment().add(5, "day").format("MM/DD/YYYY");
 dayFiveEl.appendChild(dateFive);
 
-var iconUrlOne = `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`;
-var iconUrlTwo = `https://openweathermap.org/img/w/${data.list[11].weather[0].icon}.png`;
-var iconUrlThree = `https://openweathermap.org/img/w/${data.list[19].weather[0].icon}.png`;
-var iconUrlFour = `https://openweathermap.org/img/w/${data.list[27].weather[0].icon}.png`;
-var iconUrlFive = `https://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png`;
+var iconUrlOne = document.createElement("img");
+iconUrlOne.setAttribute("src", `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`);
+dayOneEl.appendChild(iconUrlOne);
+var iconUrlTwo = document.createElement("img");
+iconUrlTwo.setAttribute("src", `https://openweathermap.org/img/w/${data.list[11].weather[0].icon}.png`);
+dayTwoEl.appendChild(iconUrlTwo);
+var iconUrlThree = document.createElement("img");
+iconUrlThree.setAttribute("src", `https://openweathermap.org/img/w/${data.list[19].weather[0].icon}.png`);
+dayThreeEl.appendChild(iconUrlThree);
+var iconUrlFour = document.createElement("img");
+iconUrlFour.setAttribute("src", `https://openweathermap.org/img/w/${data.list[27].weather[0].icon}.png`);
+dayFourEl.appendChild(iconUrlFour);
+var iconUrlFive = document.createElement("img");
+iconUrlFive.setAttribute("src", `https://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png`);
+dayFiveEl.appendChild(iconUrlFive);
 
 
 var tempOne = "Temp: "+data.list[3].main.temp + "F";
