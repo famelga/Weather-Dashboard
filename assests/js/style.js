@@ -58,19 +58,19 @@ function currentWeatherData(data) {
     nameEl.textContent = data.name;
     todayEl.appendChild(nameEl);
     var dateEl = document.createElement("h3");
-    dateEl.textContent = data.dt;
+    dateEl.textContent = moment().format("MM/DD/YYYY");
     todayEl.appendChild(dateEl);
     var iconEl = document.createElement("img");
-    iconEl.textContent = data.weather[0].icon;
+    iconEl.setAttribute("src", `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
     todayEl.appendChild(iconEl);
     var tempEl = document.createElement("h5");
-    tempEl.textContent = data.main.temp;
+    tempEl.textContent = "Temp: "+data.main.temp + "F";
     todayEl.appendChild(tempEl);
     var windEl = document.createElement("h5");
-    windEl.textContent = data.wind.speed;
+    windEl.textContent = "Wind: "+data.wind.speed + "mph";
     todayEl.appendChild(windEl);
     var humidityEl = document.createElement("h5");
-    humidityEl.textContent = data.main.humidity;
+    humidityEl.textContent = "Humidity: "+data.main.humidity + "%";
     todayEl.appendChild(humidityEl);
 
 } 
