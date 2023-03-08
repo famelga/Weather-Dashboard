@@ -98,29 +98,59 @@ iconUrlFive.setAttribute("src", `https://openweathermap.org/img/w/${data.list[35
 dayFiveEl.appendChild(iconUrlFive);
 
 
-var tempOne = "Temp: "+data.list[3].main.temp + "F";
-var tempTwo = "Temp: "+data.list[11].main.temp + "F";
-var tempThree = "Temp: "+data.list[19].main.temp + "F";
-var tempFour = "Temp: "+data.list[27].main.temp + "F";
-var tempFive = "Temp: "+data.list[35].main.temp + "F";
+    var tempElOne = document.createElement("h5");
+    tempElOne.textContent = "Temp: "+data.list[3].main.temp + "F";
+dayOneEl.appendChild(tempElOne);
+    var tempElTwo = document.createElement("h5");
+    tempElTwo.textContent = "Temp: "+data.list[11].main.temp + "F";
+dayTwoEl.appendChild(tempElTwo);
+var tempElThree = document.createElement("h5");
+tempElThree.textContent = "Temp: "+data.list[19].main.temp + "F";
+dayThreeEl.appendChild(tempElThree);
+var tempElFour = document.createElement("h5");
+tempElFour.textContent = "Temp: "+data.list[27].main.temp + "F";
+dayFourEl.appendChild(tempElFour);
+var tempElFive = document.createElement("h5");
+tempElFive.textContent = "Temp: "+data.list[35].main.temp + "F";
+dayFiveEl.appendChild(tempElFive);
 
-dayOneEl.appendChild(dateOne, iconUrlOne);
-    // var fiveEl = document.getElementById("five")
-    // var dateEl = document.createElement("h3");
-    // dateEl.textContent = data.list[i].dt;
-    // fiveEl.appendChild(dateEl);
-    // var iconEl = document.createElement("img");
-    // iconEl.textContent = data.list[i].weather[0].icon;
-    // fiveEl.appendChild(iconEl);
-    // var tempEl = document.createElement("h5");
-    // tempEl.textContent = data.list[i].temp;
-    // fiveEl.appendChild(tempEl);
-    // var windEl = document.createElement("h5");
-    // windEl.textContent = data.list[i].wind.speed;
-    // fiveEl.appendChild(windEl);
-    // var humidityEl = document.createElement("h5");
-    // humidityEl.textContent = data.list[i].humidity;
-    // fiveEl.appendChild(humidityEl);
+// dayOneEl.appendChild(dateOne, iconUrlOne);
+
+var windElOne = document.createElement("h5");
+windElOne.textContent = "Wind: "+data.list[3].wind.speed + "mph";
+dayOneEl.appendChild(windElOne);
+var humidityElOne = document.createElement("h5");
+humidityElOne.textContent = "Humidity: "+data.list[3].main.humidity + "%";
+dayOneEl.appendChild(humidityElOne);
+
+var windElTwo = document.createElement("h5");
+windElTwo.textContent = "Wind: "+data.list[3].wind.speed + "mph";
+dayTwoEl.appendChild(windElTwo);
+var humidityElTwo = document.createElement("h5");
+humidityElTwo.textContent = "Humidity: "+data.list[3].main.humidity + "%";
+dayTwoEl.appendChild(humidityElTwo);
+
+var windElThree = document.createElement("h5");
+windElThree.textContent = "Wind: "+data.list[3].wind.speed + "mph";
+dayThreeEl.appendChild(windElThree);
+var humidityElThree = document.createElement("h5");
+humidityElThree.textContent = "Humidity: "+data.list[3].main.humidity + "%";
+dayThreeEl.appendChild(humidityElThree);
+
+var windElFour = document.createElement("h5");
+windElFour.textContent = "Wind: "+data.list[3].wind.speed + "mph";
+dayFourEl.appendChild(windElFour);
+var humidityElFour = document.createElement("h5");
+humidityElFour.textContent = "Humidity: "+data.list[3].main.humidity + "%";
+dayFourEl.appendChild(humidityElFour);
+
+var windElFive = document.createElement("h5");
+windElFive.textContent = "Wind: "+data.list[3].wind.speed + "mph";
+dayFiveEl.appendChild(windElFive);
+var humidityElFive = document.createElement("h5");
+humidityElFive.textContent = "Humidity: "+data.list[3].main.humidity + "%";
+dayFiveEl.appendChild(humidityElFive);
+  
 } 
 
 btnEl.addEventListener("click", search);
