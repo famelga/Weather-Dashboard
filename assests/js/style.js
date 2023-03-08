@@ -8,27 +8,29 @@ var currentdayEl = document.getElementsByClassName("current-date");
 
 function search(event) {
   event.preventDefault;
-  getForecast();
+  // getForecast();
+  getWeather(cityInput.value);
 }
 
-function getForecast() {
-  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + apiKey + "&units=imperial";
-  console.log(requestUrl);
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-        console.log("forecast");
-      console.log(data);
-      getWeather(cityInput);
-    });
+// function getForecast() {
+//   var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + apiKey + "&units=imperial";
+//   console.log(requestUrl);
+//   fetch(requestUrl)
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//         console.log("forecast");
+//       console.log(data);
+//       forecastData(data, 0);
+//     });
     
 
-}
+// }
 
 function getWeather(cityName) {
-    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" +cityInput.value + "&appid=" + apiKey + "&units=imperial";
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" +cityName + "&appid=" + apiKey + "&units=imperial";
     console.log(requestUrl);
     fetch(requestUrl)
     .then(function (response) {
@@ -38,7 +40,15 @@ function getWeather(cityName) {
         console.log("current");
       console.log(data);
       currentWeatherData(data);
-      forecastData(data, 0);
+      var lat = data.coord.lat;
+      var lon = data.coord.lon;
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
+      .then(function(response){
+        return response.json()
+      })
+      .then(function(data){
+        console.log(data)
+      })
     });
 }
 
