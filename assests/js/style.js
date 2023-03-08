@@ -65,11 +65,21 @@ var dayThreeEl = document.querySelector(".day-three");
 var dayFourEl = document.querySelector(".day-four");
 var dayFiveEl = document.querySelector(".day-five");
 
-var dateOne = moment().add(1, "day").format("MM/DD/YYYY");
-var dateTwo = moment().add(2, "day").format("MM/DD/YYYY");
-var dateThree = moment().add(3, "day").format("MM/DD/YYYY");
-var dateFour = moment().add(4, "day").format("MM/DD/YYYY");
-var dateFive = moment().add(5, "day").format("MM/DD/YYYY");
+var dateOne = document.createElement("h3"); 
+dateOne.textContent= moment().add(1, "day").format("MM/DD/YYYY");
+dayOneEl.appendChild(dateOne);
+var dateTwo = document.createElement("h3"); 
+dateTwo.textContent= moment().add(2, "day").format("MM/DD/YYYY");
+dayTwoEl.appendChild(dateTwo);
+var dateThree = document.createElement("h3"); 
+dateThree.textContent= moment().add(3, "day").format("MM/DD/YYYY");
+dayThreeEl.appendChild(dateThree);
+var dateFour = document.createElement("h3"); 
+dateFour.textContent= moment().add(4, "day").format("MM/DD/YYYY");
+dayFourEl.appendChild(dateFour);
+var dateFive = document.createElement("h3"); 
+dateFive.textContent= moment().add(5, "day").format("MM/DD/YYYY");
+dayFiveEl.appendChild(dateFive);
 
 var iconUrlOne = `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`;
 var iconUrlTwo = `https://openweathermap.org/img/w/${data.list[11].weather[0].icon}.png`;
@@ -77,6 +87,14 @@ var iconUrlThree = `https://openweathermap.org/img/w/${data.list[19].weather[0].
 var iconUrlFour = `https://openweathermap.org/img/w/${data.list[27].weather[0].icon}.png`;
 var iconUrlFive = `https://openweathermap.org/img/w/${data.list[35].weather[0].icon}.png`;
 
+
+var tempOne = "Temp: "+data.list[3].main.temp + "F";
+var tempTwo = "Temp: "+data.list[11].main.temp + "F";
+var tempThree = "Temp: "+data.list[19].main.temp + "F";
+var tempFour = "Temp: "+data.list[27].main.temp + "F";
+var tempFive = "Temp: "+data.list[35].main.temp + "F";
+
+dayOneEl.appendChild(dateOne, iconUrlOne);
     // var fiveEl = document.getElementById("five")
     // var dateEl = document.createElement("h3");
     // dateEl.textContent = data.list[i].dt;
